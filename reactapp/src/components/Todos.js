@@ -1,12 +1,13 @@
 import React from 'react';
-import './App.css';
+import TodoItem from './TodoItem';
 
-function Todos() {
-  return (
-    <div>
-        <h1>Todos</h1> 
-    </div>
-  );
+
+class Todos extends React.Component{
+    render(){
+  return this.props.todos.map((todo) => (
+            <TodoItem key={todo.id} todo={todo}/>
+  ));
+}
 }
 
-export default Todos;
+export default Todos
