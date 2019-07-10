@@ -2,7 +2,10 @@ import React from 'react';
 import Todos from './components/Todos'
 import './App.css';
 
+// The main App Components, the  other components are in ./components
 class App extends React.Component {
+
+  // we create a state todos in App.js that we can feed to the other components (Todos for example)
   state = {
     todos: [
       {
@@ -25,13 +28,18 @@ class App extends React.Component {
 
   render(){
 
- // console.log(this.state.todos);
 
+
+
+    // JSX
   return (
     <div className="App">
-        <Todos todos = {this.state.todos}/>
+         <Todos todos = {this.state.todos}/>
     </div>
   );
+
+
+
 }
 }
 

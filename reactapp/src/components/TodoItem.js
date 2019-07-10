@@ -12,11 +12,11 @@ export class TodoItem extends Component {
     }
 }
 
-//PropTypes
 
+// PropTypes of TodoItem 
 TodoItem.propTypes = {
-    todos : PropTypes.object.isRequired
-}
+    todo: PropTypes.object.isRequired
+  }
 
 const itemStyle = {
     backgroundColor : '#f4f4f4'
