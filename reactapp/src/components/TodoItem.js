@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 
 export class TodoItem extends Component {
     // apply style only if todo's completed = true
+
+
     getStyle = () => {
         return {
                 background : '#f4f4f4',
@@ -14,12 +16,23 @@ export class TodoItem extends Component {
         }
     }
 
+        /* use arrow functions! (or normal functions, but you'll need to add a bind() keyword on the html element
+     because the 'this' keyword is part of React.Component therefore, not accessible by custom functions) :
 
+            markComplete = (e) => {
+                console.log(this.props); }
+         */
+    
 
     render() {
+        // Deconstructing
+        const { id, title} = this.props.todo;
         return (
             <div style={this.getStyle()}>
-                <p>{this.props.todo.title}</p>
+                <p>
+                <input type="checkbox" onChange={this.props.markComplete.bind(this, id)}/> {'  '}
+                {title}
+                </p>
             </div>
         )
     }
