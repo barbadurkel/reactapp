@@ -35,6 +35,14 @@ class App extends React.Component {
         return todo;
       }) })
   }
+  // Delete the todo item
+  deleteTodo = (id) => {
+    // '...' the spread operator : copies everything from the state.todos
+    this.setState({todos : [...this.state.todos.filter(todo => todo.id !== id)]
+    });
+
+  }
+
 
   render(){
 
@@ -43,7 +51,8 @@ class App extends React.Component {
   return (
     <div className="App">
       {/* passing the todos state of App.js as a 'prop' to Todos.js */}
-         <Todos todos = {this.state.todos} toggleCompleted={this.toggleCompleted}/>
+         <Todos todos = {this.state.todos} toggleCompleted={this.toggleCompleted}
+         deleteTodo={this.deleteTodo}/>
     </div>
   );
 

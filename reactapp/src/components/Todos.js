@@ -17,7 +17,8 @@ class Todos extends React.Component{
         // passing the Todos' prop todos[i] (foreach), as a TodoItem prop todo (to be accessible with :
         // this.props.todo in TodoItem.js ), NB : lists should have keys each key is unique.
         
-            <TodoItem key={todo.id} todo={todo} toggleCompleted={this.props.toggleCompleted}/>
+            <TodoItem key={todo.id} todo={todo} toggleCompleted={this.props.toggleCompleted} 
+            deleteTodo={this.props.deleteTodo} />
   ));
 }
 }
