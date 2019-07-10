@@ -1,6 +1,8 @@
 import React from 'react';
 import Todos from './components/Todos'
-import Header from './components/layout/Header';
+import AddTodo from './components/AddTodo'
+import Header from './components/layout/Header'
+import uuid from 'uuid'
 
 
 import './App.css';
@@ -12,17 +14,17 @@ class App extends React.Component {
   state = {
     todos: [
       {
-        id : 1,
+        id : uuid.v4(),
         title : 'Lift 3 times a week',
         completed : false
       },
        {
-        id : 2,
+        id : uuid.v4(),
         title : 'Cook 5 meals',
         completed : true
       },
       {
-        id : 3,
+        id : uuid.v4(),
         title : 'Go out',
         completed : false
       }
@@ -47,6 +49,15 @@ class App extends React.Component {
 
   }
 
+  // Add a todo item
+  addTodo = (title) => {
+    const newTodo = {
+      id : uuid.v4(),
+      title : title,
+      completed : false
+    }
+      this.setState({todos : [...this.state.todos, newTodo]});;
+  }
 
   render(){
 
@@ -54,10 +65,14 @@ class App extends React.Component {
     // JSX
   return (
     <div className="App">
-      <Header/>
+     <div className="container">
+     <Header/>
       {/* passing the todos state of App.js as a 'prop' to Todos.js */}
+      <AddTodo addTodo={this.addTodo}/>
          <Todos todos = {this.state.todos} toggleCompleted={this.toggleCompleted}
          deleteTodo={this.deleteTodo}/>
+
+     </div>
     </div>
   );
 
