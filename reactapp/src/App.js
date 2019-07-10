@@ -16,7 +16,7 @@ class App extends React.Component {
        {
         id : 2,
         title : 'Cook 5 meals',
-        completed : false
+        completed : true
       },
       {
         id : 3,
@@ -34,6 +34,7 @@ class App extends React.Component {
     // JSX
   return (
     <div className="App">
+      {/* passing the todos state of App.js as a 'prop' to Todos.js */}
          <Todos todos = {this.state.todos}/>
     </div>
   );
