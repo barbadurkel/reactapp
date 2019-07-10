@@ -18,7 +18,7 @@ class Todos extends React.Component{
         // this.props.todo in TodoItem.js ), NB : lists should have keys each key is unique.
         
             <TodoItem key={todo.id} todo={todo} toggleCompleted={this.props.toggleCompleted} 
-            deleteTodo={this.props.delete} />
+            deleteTodo={this.props.deleteTodo} />
   ));
 }
 }

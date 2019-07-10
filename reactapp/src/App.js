@@ -1,8 +1,10 @@
 import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Todos from './components/Todos'
 import AddTodo from './components/AddTodo'
 import Header from './components/layout/Header'
 import uuid from 'uuid'
+import About from './components/pages/About'
 
 
 import './App.css';
@@ -61,19 +63,29 @@ class App extends React.Component {
 
   render(){
 
-
     // JSX
   return (
-    <div className="App">
-     <div className="container">
-     <Header/>
-      {/* passing the todos state of App.js as a 'prop' to Todos.js */}
-      <AddTodo addTodo={this.addTodo}/>
-         <Todos todos = {this.state.todos} toggleCompleted={this.toggleCompleted}
-         deleteTodo={this.deleteTodo}/>
+    <Router>
+      <div className="App">
+      <div className="container">
+      <Header/>
+      {/*in order to display more than one component using the same route, all the components need to be wrapped
+      inside a React.Fragment */}
+      { /* the exact keyword : don't show what's wrapped in here in other routes that start with / */}
+      <Route exact path="/" render={props => (
+          <React.Fragment>
+                {/* passing the todos state of App.js as a 'prop' to Todos.js */}
+                 <AddTodo addTodo={this.addTodo}/>
+                 <Todos todos = {this.state.todos} toggleCompleted={this.toggleCompleted}
+                  deleteTodo={this.deleteTodo}/>
+            </React.Fragment>
+      )}/>
+      <Route path="/about" component={About} />
 
-     </div>
-    </div>
+       
+      </div>
+      </div>
+    </Router>
   );
 
 
