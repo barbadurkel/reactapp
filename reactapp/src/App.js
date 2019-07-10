@@ -25,17 +25,25 @@ class App extends React.Component {
       }
     ]
   }
+  
+  // Toggle completed
+  toggleCompleted = (id) => {
+      this.setState({todos : this.state.todos.map(todo => {
+        if(todo.id === id){
+            todo.completed = !todo.completed;
+        }
+        return todo;
+      }) })
+  }
 
   render(){
-
-
 
 
     // JSX
   return (
     <div className="App">
       {/* passing the todos state of App.js as a 'prop' to Todos.js */}
-         <Todos todos = {this.state.todos}/>
+         <Todos todos = {this.state.todos} toggleCompleted={this.toggleCompleted}/>
     </div>
   );
 
