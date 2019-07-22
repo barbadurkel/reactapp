@@ -36,6 +36,11 @@
         handleClick = () => { blabla; }
 
 - embedding any JS in JSX by wrapping in culy braces, includin the JS && operator, example :
-{unreadMsgs.length > 0 && <h2>you have {unreadMsgs.length} msgs</h2>}
+{unreadMsgs.length > 0 && <div>you have {unreadMsgs.length} msgs</div>}
 (will return false if there are no msgs) 
 (check conditionalrendering.jsx)
+
+- Keys help React identify which items have changed in an array. (every element must have a key which is unique, but we only specify the key when there is an array of elements, example : using the map function)
+numbers.map(number => <li key={number.toString()}></li>)
+
+-
