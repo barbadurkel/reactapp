@@ -24,3 +24,18 @@
  3. After the DOM is updated, React calls componentDidMount which calls tick() every second
  4. tick() updatex the local state of the component, React notices that and updates the DOM, simple as that.
  5. if the Clock component is removed, React calls the componentWillUnmount() lifecycle method
+
+ -  React has an **unidirectional** data flow : any state is always owned by some specific component and any can only affect the components 'below'
+ 
+ - preventDefault() stops the default action of an element from happening (ex. a submit button from submitting a form)
+
+ - Class components : in order for the **this** keyword to work inside a function (ex. handleClick), a bind must be added in the constructor :
+ this.handleClick = this.handleClick.bind(this);
+
+ another way around using bind is defining the event handler using the experimental syntax : 
+        handleClick = () => { blabla; }
+
+- embedding any JS in JSX by wrapping in culy braces, includin the JS && operator, example :
+{unreadMsgs.length > 0 && <h2>you have {unreadMsgs.length} msgs</h2>}
+(will return false if there are no msgs) 
+(check conditionalrendering.jsx)
