@@ -43,4 +43,4 @@
 - Keys help React identify which items have changed in an array. (every element must have a key which is unique, but we only specify the key when there is an array of elements, example : using the map function)
 numbers.map(number => <li key={number.toString()}></li>)
 
--
+- Controlled components (example : forms)
