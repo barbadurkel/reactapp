@@ -3,24 +3,27 @@ import TodoItem from './TodoItem';
 import PropTypes from 'prop-types';
 
 
-class Todos extends React.Component{
+class Todos extends React.Component {
 
-   
 
-    render(){
 
-      {/* accessing the todos property (the App component's state) 
-          console.log(this.props.todos) */}
+  render() {
 
-          {/* for each todo in todos, return a TodoItem component */}
-  return this.props.todos.map((todo) => (
-        // passing the Todos' prop todos[i] (foreach), as a TodoItem prop todo (to be accessible with :
-        // this.props.todo in TodoItem.js ), NB : lists should have keys each key is unique.
-        
-            <TodoItem key={todo.id} todo={todo} toggleCompleted={this.props.toggleCompleted} 
-            deleteTodo={this.props.deleteTodo} />
-  ));
-}
+    {
+      /* accessing the todos property (the App component's state) 
+                console.log(this.props.todos) */
+    }
+
+    {
+      /* for each todo in todos, return a TodoItem component */
+    }
+    return this.props.todos.map((todo) => (
+      // passing the Todos' prop todos[i] (foreach), as a TodoItem prop todo (to be accessible with :
+      // this.props.todo in TodoItem.js ), NB : lists should have keys each key is unique.
+
+      <TodoItem key = {todo.id}todo = {todo} toggleCompleted = { this.props.toggleCompleted} deleteTodo = {this.props.deleteTodo}/>
+    ));
+  }
 }
 
 
