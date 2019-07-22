@@ -44,3 +44,7 @@
 numbers.map(number => <li key={number.toString()}></li>)
 
 - Controlled components (example : forms)
+forms (input, textarea, select) typically maintain their own state, react components has its state only updated with setState(). We can combine the two and make React the **single source of truth**. An input form element whose value is controlled by React in this way is called a *Controlled Component*.
+
+- Lifting a state up, is creating a local state that will serve as the **source of truth** for multiple components. (example : Calculator's state that provides temperature in Celsius and Fahrenheit : check sharingstate.jsx)
+
