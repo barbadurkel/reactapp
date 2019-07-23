@@ -50,3 +50,27 @@ forms (input, textarea, select) typically maintain their own state, react compon
 
 - React Composition :
 some components don't know their children ahead of time, we use the keyword children to pass elements directly to the output of those components : (return  {props.children})
+
+- There is no limitation to what you can pass as props in React (objects..)
+
+- Specialization : when a Component is a special case of another component (Dialog->WelcomeDialog).the configuration is done with props.
+WelcomeDialog(){
+    return (<Dialog title='' message='' prop3=''>)
+    }
+- Thinking in React : 
+    1. Build a Mock 
+    2. Draw the Components Hirerarchy
+    3. Build a static version (hard coded data) **DONT** use state at all at this stage!
+    ***NOTE : In simpler examples, it’s usually easier to go top-down, and on larger projects, it’s easier to go bottom-up and write tests as you build.***
+    4. DATA :
+        4.1 List all the pieces of data
+        4.2 Figure out which ones are states by asking the 3 questions (cf. reactjs.org/docs/thinking-in-react)
+    5. Identify where the state should live : The woner of the state should be a component above all that needs the state in the hierarchy of the components thar render something based on that state (so, list those first)
+    6. Add inverse data flow
+    also remember, Components should only update their own state
+- Hooks : 
+1. useState : contains the *current* state and a function to update it, React preserves a state between the renders
+    const[count, setCount] = useState(0);
+2. useEffect : you're telling React to run the "effect" function after every **render** of elements in the page
+    useEffect( () => { `${count}` })
+Effect may also (optionally) specify how to "clean up" after them, by returning a function! (cf. reactjs.org/docs/hooks-overview) and that's equivalient to ComponentDidUnmount
