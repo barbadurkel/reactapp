@@ -48,3 +48,5 @@ forms (input, textarea, select) typically maintain their own state, react compon
 
 - Lifting a state up, is creating a local state that will serve as the **source of truth** for multiple components. (example : Calculator's state that provides temperature in Celsius and Fahrenheit : check sharingstate.jsx)
 
+- React Composition :
+some components don't know their children ahead of time, we use the keyword children to pass elements directly to the output of those components : (return  {props.children})
