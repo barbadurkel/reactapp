@@ -68,6 +68,8 @@ export class TemperatureInput extends Component {
                 <input value={temperature} onChange={this.handleChange}/>
             </fieldset>
 
+            
+
         )
     }
 }
